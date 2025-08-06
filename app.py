@@ -6,24 +6,15 @@ import data_manager
 import chatbot
 import ui_components
 
-# --- Page Configuration ---
+# --- Page Configuration and State Initialization ---
 if 'lang' not in st.session_state: st.session_state.lang = 'en'
 text = LANGUAGES[st.session_state.lang]
+st.set_page_config(page_title=text['page_title'], page_icon="✨", layout="wide", initial_sidebar_state="expanded")
 
-st.set_page_config(
-    page_title=text['page_title'], page_icon="✨", layout="wide", initial_sidebar_state="expanded"
-)
-
-# --- Session State Initialization ---
 def initialize_session_state():
-    # Set a default active_tab on the very first run
     if 'active_tab' not in st.session_state:
         st.session_state.active_tab = text['dashboard_tab']
-    
-    defaults = {
-        'chat_history': [], 'user_profile': {}, 'recommended_schemes': [],
-        'audio_to_play': None, 'light_mode': False, 'explain_scheme_id': None
-    }
+    defaults = {'chat_history': [], 'user_profile': {}, 'recommended_schemes': [], 'audio_to_play': None, 'light_mode': False, 'explain_scheme_id': None}
     for key, value in defaults.items():
         if key not in st.session_state: st.session_state[key] = value
 
@@ -47,13 +38,14 @@ def main():
     current_theme = "light" if st.session_state.light_mode else "dark"
     ui_components.apply_custom_css(current_theme)
 
+    # --- Profile and Scheme Finding Logic ---
     find_schemes_clicked = ui_components.display_profile_sidebar(lang)
     if find_schemes_clicked:
         schemes = data_manager.find_matching_schemes(st.session_state.user_profile)
         st.session_state.recommended_schemes = schemes
         st.toast(text['toast_schemes_found'], icon="🎉")
-        st.session_state.active_tab = text['dashboard_tab'] # Set active tab after finding schemes
-
+        st.session_state.active_tab = text['dashboard_tab']
+    
     st.title(text['main_title'])
     st.caption(text['caption'])
 
@@ -61,35 +53,18 @@ def main():
     if st.session_state.explain_scheme_id:
         explanation = chatbot.get_eligibility_explanation(st.session_state.explain_scheme_id, st.session_state.user_profile, lang)
         st.session_state.chat_history.append({'type': 'assistant', 'message': explanation})
-        st.session_state.active_tab = text['chat_tab'] # Set the desired tab
+        st.session_state.active_tab = text['chat_tab']
         st.session_state.explain_scheme_id = None
-        st.rerun() # Rerun to switch to the chat tab
+        st.rerun()
     
-    # --- Main Tab Menu (THE FIX IS HERE) ---
+    # --- Main Tab Menu (Stable version) ---
     tab_options = [text['dashboard_tab'], text['chat_tab']]
+    try: default_index = tab_options.index(st.session_state.active_tab)
+    except (ValueError, KeyError): default_index = 0
+
+    selected = option_menu(menu_title=None, options=tab_options, icons=["grid-1x2-fill", "robot"], key='main_menu', default_index=default_index, orientation="horizontal",
+        styles={"container": {"padding": "0!important", "background-color": "#262730", "border-radius": "10px"}, "icon": {"color": "white", "font-size": "20px"}, "nav-link": {"font-size": "16px", "font-family": "Manrope, sans-serif", "font-weight": "bold", "color": "#aaa", "text-align": "center", "margin":"0px", "--hover-color": "#3a3b44"}, "nav-link-selected": {"background-color": "#ef4444", "color": "white"}})
     
-    # This logic now reliably finds the correct index for the menu
-    try:
-        default_index = tab_options.index(st.session_state.active_tab)
-    except (ValueError, KeyError):
-        default_index = 0
-
-    selected = option_menu(
-        menu_title=None, 
-        options=tab_options, 
-        icons=["grid-1x2-fill", "robot"],
-        key='main_menu', # A static key helps Streamlit
-        default_index=default_index, # We now control this perfectly
-        orientation="horizontal",
-        styles={
-            "container": {"padding": "0!important", "background-color": "#262730", "border-radius": "10px"},
-            "icon": {"color": "white", "font-size": "20px"},
-            "nav-link": {"font-size": "16px", "font-family": "Manrope, sans-serif", "font-weight": "bold", "color": "#aaa", "text-align": "center", "margin":"0px", "--hover-color": "#3a3b44"},
-            "nav-link-selected": {"background-color": "#ef4444", "color": "white"},
-        }
-    )
-
-    # If the user clicks a different tab, update the state and rerun once
     if selected != st.session_state.active_tab:
         st.session_state.active_tab = selected
         st.rerun()
@@ -120,6 +95,7 @@ def main():
                         schemes = data_manager.find_matching_schemes(st.session_state.user_profile)
                         st.session_state.recommended_schemes = schemes
                         st.toast(text['toast_schemes_updated'], icon="✅")
+                        st.session_state.active_tab = text['dashboard_tab']
                     st.rerun()
         text_input = st.chat_input(text['chat_input_prompt'])
         st.divider()

@@ -1,71 +1,107 @@
 {
     "PM-KISAN": {
-        "name": {
-            "en": "PM-KISAN Samman Nidhi",
-            "hi": "पीएम किसान सम्मान निधि"
-        },
-        "category": "Agriculture",
-        "benefit": "₹6,000 per year",
-        "eligibility": {
-            "en": ["Farmer", "Land owner", "Small/Marginal farmer"],
-            "hi": ["किसान", "भूमि स्वामी", "लघु/सीमांत किसान"]
-        },
-        "description": {
-            "en": "Direct income support to farmers",
-            "hi": "किसानों के लिए सीधे पैसे का सहारा"
-        },
-        "documents": ["Aadhaar", "Bank Account", "Land Records"],
-        "application_link": "https://pmkisan.gov.in/",
-        "help_link": "https://pmkisan.gov.in/StaticPages/faq.aspx",
-        "deadline": "Ongoing",
-        "contact": "1800-180-1551",
-        "contact_link": "tel:1800-180-1551",
-        "tags": ["farmer", "kisan", "agriculture", "land", "rural", "kheti", "किसान", "खेती", "कृषि"]
+        "name": { "en": "PM-KISAN Samman Nidhi", "hi": "पीएम किसान सम्मान निधि" },
+        "category": "Agriculture", "benefit": "₹6,000 per year",
+        "eligibility": { "en": ["Farmer", "Land owner"], "hi": ["किसान", "भूमि स्वामी"] },
+        "description": { "en": "Direct income support for farmers.", "hi": "किसानों के लिए सीधे आय सहायता।" },
+        "application_link": "https://pmkisan.gov.in/", "tags": ["farmer", "kisan", "agriculture", "land", "rural", "kheti", "किसान", "खेती", "कृषि"]
     },
     "MUDRA": {
-        "name": {
-            "en": "PM Mudra Yojana",
-            "hi": "मुद्रा योजना"
-        },
-        "category": "Business",
-        "benefit": "Up to ₹10 lakh business loan",
-        "eligibility": {
-            "en": ["Small business owner", "Self-employed", "Micro enterprise"],
-            "hi": ["छोटे व्यवसाय के मालिक", "स्वरोजगार", "सूक्ष्म उद्यम"]
-        },
-        "description": {
-            "en": "Credit support for micro-enterprises",
-            "hi": "व्यापार के लिए लोन"
-        },
-        "documents": ["Business Plan", "Aadhaar", "Bank Statements", "Income Proof"],
-        "application_link": "https://www.mudra.org.in/",
-        "help_link": "https://www.mudra.org.in/Default/ViewFile/?id=1218",
-        "deadline": "Ongoing",
-        "contact": "1800-180-1111",
-        "contact_link": "tel:1800-180-1111",
-        "tags": ["business", "loan", "startup", "entrepreneur", "vyapar", "व्यापार", "लोन"]
+        "name": { "en": "PM Mudra Yojana", "hi": "मुद्रा योजना" },
+        "category": "Business", "benefit": "Up to ₹10 lakh business loan",
+        "eligibility": { "en": ["Small business owner", "Self-employed"], "hi": ["छोटे व्यवसाय के मालिक", "स्वरोजगार"] },
+        "description": { "en": "Credit support for micro-enterprises.", "hi": "सूक्ष्म उद्यमों के लिए ऋण सहायता।" },
+        "application_link": "https://www.mudra.org.in/", "tags": ["business", "loan", "startup", "entrepreneur", "vyapar", "व्यापार", "लोन", "salaried"]
     },
     "SCHOLARSHIP": {
-        "name": {
-            "en": "Post Matric Scholarship",
-            "hi": "छात्रवृत्ति योजना"
-        },
-        "category": "Education",
-        "benefit": "₹2,200-10,000 per month",
-        "eligibility": {
-            "en": ["SC/ST category", "Post-matriculation study", "Family income < ₹2.5 lakh"],
-            "hi": ["SC/ST श्रेणी", "पोस्ट-मैट्रिक अध्ययन", "पारिवारिक आय < ₹2.5 लाख"]
-        },
-        "description": {
-            "en": "Financial assistance for higher education",
-            "hi": "पढ़ाई के लिए पैसे की मदद"
-        },
-        "documents": ["Caste Certificate", "Income Certificate", "Mark Sheets"],
-        "application_link": "https://scholarships.gov.in/",
-        "help_link": "https://scholarships.gov.in/helpdesk",
-        "deadline": "30th September 2025",
-        "contact": "0120-6619540",
-        "contact_link": "tel:0120-6619540",
-        "tags": ["education", "student", "scholarship", "college", "study", "padhai", "chhatra", "छात्र", "पढ़ाई"]
+        "name": { "en": "Post Matric Scholarship", "hi": "छात्रवृत्ति योजना" },
+        "category": "Education", "benefit": "Financial aid for higher education",
+        "eligibility": { "en": ["SC/ST category", "Post-matriculation study"], "hi": ["SC/ST श्रेणी", "पोस्ट-मैट्रिक अध्ययन"] },
+        "description": { "en": "Financial assistance for students after 10th grade.", "hi": "10वीं कक्षा के बाद छात्रों के लिए वित्तीय सहायता।" },
+        "application_link": "https://scholarships.gov.in/", "tags": ["education", "student", "scholarship", "college", "study", "padhai", "chhatra", "छात्र", "पढ़ाई"]
+    },
+    "ATAL-PENSION": {
+        "name": { "en": "Atal Pension Yojana", "hi": "अटल पेंशन योजना" },
+        "category": "Pension", "benefit": "Guaranteed pension from ₹1,000 to ₹5,000",
+        "eligibility": { "en": ["Age 18-40", "Has a bank account"], "hi": ["आयु 18-40", "बैंक खाता है"] },
+        "description": { "en": "A pension scheme for citizens, focused on the unorganized sector.", "hi": "नागरिकों के लिए एक पेंशन योजना, जो असंगठित क्षेत्र पर केंद्रित है।" },
+        "application_link": "https://enps.nsdl.com/eNPS/NationalPensionSystem.html", "tags": ["pension", "retirement", "investment", "senior", "old age", "salaried", "unemployed", "pension"]
+    },
+    "SUGAMYA-BHARAT": {
+        "name": { "en": "Accessible India Campaign", "hi": "सुगम्य भारत अभियान" },
+        "category": "Disability", "benefit": "Aids and assistive devices",
+        "eligibility": { "en": ["Person with Disability (Divyangjan)"], "hi": ["विकलांग व्यक्ति (दिव्यांगजन)"] },
+        "description": { "en": "Making public spaces accessible for persons with disabilities.", "hi": "विकलांग व्यक्तियों के लिए सार्वजनिक स्थानों को सुलभ बनाना।" },
+        "application_link": "http://disabilityaffairs.gov.in/content/page/accessible-india-campaign.php", "tags": ["disability", "divyangjan", "accessible", "assistive", "handicapped", "viklang", "physically challenged"]
+    },
+    "STAND-UP-INDIA": {
+        "name": { "en": "Stand-Up India Scheme", "hi": "स्टैंड-अप इंडिया योजना" },
+        "category": "Business", "benefit": "Bank loans from ₹10 lakh to ₹1 Crore",
+        "eligibility": { "en": ["Woman entrepreneur", "SC/ST entrepreneur"], "hi": ["महिला उद्यमी", "SC/ST उद्यमी"] },
+        "description": { "en": "Promotes entrepreneurship among women and SC/ST communities.", "hi": "महिलाओं और SC/ST समुदायों में उद्यमिता को बढ़ावा देता है।" },
+        "application_link": "https://www.standupmitra.in/", "tags": ["business", "loan", "startup", "entrepreneur", "vyapar", "women", "mahila", "sc", "st", "female"]
+    },
+    "AYUSHMAN-BHARAT": {
+        "name": { "en": "Ayushman Bharat PM-JAY", "hi": "आयुष्मान भारत PM-JAY" },
+        "category": "Healthcare", "benefit": "₹5 lakh health insurance per family per year",
+        "eligibility": { "en": ["Poor and vulnerable families", "Listed in SECC database"], "hi": ["गरीब और कमजोर परिवार", "SECC डेटाबेस में सूचीबद्ध"] },
+        "description": { "en": "National health protection scheme for secondary and tertiary care.", "hi": "माध्यमिक और तृतीयक देखभाल के लिए राष्ट्रीय स्वास्थ्य सुरक्षा योजना।" },
+        "application_link": "https://pmjay.gov.in/", "tags": ["health", "healthcare", "insurance", "hospital", "medical", "treatment", "bima", "swasthya", "ilaj", "aspataal", "poor", "bpl"]
+    },
+    "PMAY": {
+        "name": { "en": "Pradhan Mantri Awas Yojana (Urban)", "hi": "प्रधानमंत्री आवास योजना (शहरी)" },
+        "category": "Housing", "benefit": "Subsidy on home loan interest",
+        "eligibility": { "en": ["Urban poor", "Economically Weaker Section (EWS)"], "hi": ["शहरी गरीब", "आर्थिक रूप से कमजोर वर्ग (EWS)"] },
+        "description": { "en": "Affordable housing for the urban poor by 2022.", "hi": "2022 तक शहरी गरीबों के लिए किफायती आवास।" },
+        "application_link": "https://pmaymis.gov.in/", "tags": ["housing", "home", "house", "ghar", "awas", "shelter", "urban", "subsidy", "loan", "flat"]
+    },
+    "PMKVY": {
+        "name": { "en": "Pradhan Mantri Kaushal Vikas Yojana", "hi": "प्रधानमंत्री कौशल विकास योजना" },
+        "category": "Skill Development", "benefit": "Free skill training and certification",
+        "eligibility": { "en": ["Unemployed youth", "School/college dropouts"], "hi": ["बेरोजगार युवा", "स्कूल/कॉलेज छोड़ने वाले"] },
+        "description": { "en": "Skill certification scheme to enable youth to take up industry-relevant jobs.", "hi": "युवाओं को उद्योग-प्रासंगिक नौकरियां लेने में सक्षम बनाने के लिए कौशल प्रमाणन योजना।" },
+        "application_link": "https://www.pmkvy.gov.in/", "tags": ["skill", "training", "development", "job", "employment", "course", "kaushal", "naukri", "prashikshan", "unemployed", "student"]
+    },
+    "MGNREGA": {
+        "name": { "en": "Mahatma Gandhi National Rural Employment Guarantee Act", "hi": "महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी अधिनियम" },
+        "category": "Employment", "benefit": "100 days of guaranteed wage employment in a financial year",
+        "eligibility": { "en": ["Adult members of a rural household", "Willing to do unskilled manual work"], "hi": ["ग्रामीण परिवार के वयस्क सदस्य", "अकुशल शारीरिक कार्य करने के इच्छुक"] },
+        "description": { "en": "Legal guarantee for one hundred days of employment in every financial year.", "hi": "प्रत्येक वित्तीय वर्ष में एक सौ दिनों के रोजगार की कानूनी गारंटी।" },
+        "application_link": "https://nrega.nic.in/", "tags": ["employment", "job", "work", "rural", "village", "manual", "labour", "naukri", "rozgar", "gaon", "unemployed"]
+    },
+    "PMMVY": {
+        "name": { "en": "Pradhan Mantri Matru Vandana Yojana", "hi": "प्रधानमंत्री मातृ वंदना योजना" },
+        "category": "Women & Child Development", "benefit": "₹5,000 cash incentive for pregnant women",
+        "eligibility": { "en": ["Pregnant and lactating women for first living child"], "hi": ["पहले जीवित बच्चे के लिए गर्भवती और स्तनपान कराने वाली महिलाएं"] },
+        "description": { "en": "A maternity benefit program for partial wage compensation.", "hi": "आंशिक मजदूरी मुआवजे के लिए एक मातृत्व लाभ कार्यक्रम।" },
+        "application_link": "https://pmmvy.wcd.gov.in/", "tags": ["women", "pregnant", "pregnancy", "mother", "maternity", "child", "mahila", "garbhavatee", "female"]
+    },
+    "PM-SVANIDHI": {
+        "name": { "en": "PM SVANidhi Scheme", "hi": "पीएम स्वनिधि योजना" },
+        "category": "Business", "benefit": "Collateral-free working capital loan up to ₹10,000",
+        "eligibility": { "en": ["Street vendors", "Hawkers"], "hi": ["स्ट्रीट वेंडर", "फेरीवाले"] },
+        "description": { "en": "Special micro-credit facility for street vendors.", "hi": "स्ट्रीट वेंडरों के लिए विशेष माइक्रो-क्रेडिट सुविधा।" },
+        "application_link": "https://pmsvanidhi.mohua.gov.in/", "tags": ["street vendor", "vendor", "thela", "rehri", "business", "loan", "unorganized", "small business"]
+    },
+    "UJJAWALA": {
+        "name": { "en": "Pradhan Mantri Ujjwala Yojana", "hi": "प्रधानमंत्री उज्ज्वला योजना" },
+        "category": "Women Empowerment", "benefit": "Deposit-free LPG connection",
+        "eligibility": { "en": ["Women from BPL households"], "hi": ["बीपीएल परिवारों की महिलाएं"] },
+        "description": { "en": "Providing clean cooking fuel (LPG) to women from poor households.", "hi": "गरीब परिवारों की महिलाओं को स्वच्छ खाना पकाने का ईंधन (एलपीजी) उपलब्ध कराना।" },
+        "application_link": "https://www.pmuy.gov.in/", "tags": ["women", "lpg", "gas", "cylinder", "kitchen", "bpl", "poor", "mahila", "female"]
+    },
+    "SUKANYA-SAMRIDDHI": {
+        "name": { "en": "Sukanya Samriddhi Yojana", "hi": "सुकन्या समृद्धि योजना" },
+        "category": "Financial Savings", "benefit": "High interest rate savings scheme for a girl child",
+        "eligibility": { "en": ["Parents/guardians of a girl child below 10 years"], "hi": ["10 वर्ष से कम उम्र की बालिका के माता-पिता/अभिभावक"] },
+        "description": { "en": "A small deposit scheme for the girl child as part of 'Beti Bachao Beti Padhao' campaign.", "hi": "'बेटी बचाओ बेटी पढ़ाओ' अभियान के हिस्से के रूप में बालिका के लिए एक छोटी जमा योजना।" },
+        "application_link": "https://www.indiapost.gov.in/Financial/Pages/Content/sukanya-samriddhi-yojana.aspx", "tags": ["girl", "child", "daughter", "beti", "investment", "savings", "student", "female", "women"]
+    },
+    "PMFBY": {
+        "name": { "en": "Pradhan Mantri Fasal Bima Yojana", "hi": "प्रधानमंत्री फसल बीमा योजना" },
+        "category": "Agriculture", "benefit": "Insurance cover against crop failure",
+        "eligibility": { "en": ["Farmers who have taken loans or who have not"], "hi": ["जिन किसानों ने ऋण लिया है या नहीं लिया है"] },
+        "description": { "en": "Crop insurance scheme to provide financial support to farmers suffering crop loss/damage.", "hi": "फसल हानि/क्षति से पीड़ित किसानों को वित्तीय सहायता प्रदान करने के लिए फसल बीमा योजना।" },
+        "application_link": "https://pmfby.gov.in/", "tags": ["farmer", "kisan", "agriculture", "crop", "fasal", "bima", "insurance", "rural"]
     }
 }

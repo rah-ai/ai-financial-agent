@@ -6,14 +6,13 @@ import data_manager
 import chatbot
 import ui_components
 
-# --- Page Configuration and State Initialization ---
+# --- Page Configuration and State Initialization (Unchanged) ---
 if 'lang' not in st.session_state: st.session_state.lang = 'en'
 text = LANGUAGES[st.session_state.lang]
 st.set_page_config(page_title=text['page_title'], page_icon="✨", layout="wide", initial_sidebar_state="expanded")
 
 def initialize_session_state():
-    if 'active_tab' not in st.session_state:
-        st.session_state.active_tab = text['dashboard_tab']
+    if 'active_tab' not in st.session_state: st.session_state.active_tab = text['dashboard_tab']
     defaults = {'chat_history': [], 'user_profile': {}, 'recommended_schemes': [], 'audio_to_play': None, 'light_mode': False, 'explain_scheme_id': None}
     for key, value in defaults.items():
         if key not in st.session_state: st.session_state[key] = value
@@ -24,7 +23,7 @@ def main():
     lang = st.session_state.lang
     text = LANGUAGES[lang]
 
-    # --- Sidebar (Language and Theme) ---
+    # --- Sidebar and Theme Logic (Unchanged) ---
     with st.sidebar:
         selected_lang_display = "English" if lang == "en" else "हिंदी"
         lang_options = ["English", "हिंदी"]
@@ -38,7 +37,7 @@ def main():
     current_theme = "light" if st.session_state.light_mode else "dark"
     ui_components.apply_custom_css(current_theme)
 
-    # --- Profile and Scheme Finding Logic ---
+    # --- Profile and Scheme Finding Logic (Unchanged) ---
     find_schemes_clicked = ui_components.display_profile_sidebar(lang)
     if find_schemes_clicked:
         schemes = data_manager.find_matching_schemes(st.session_state.user_profile)
@@ -49,7 +48,7 @@ def main():
     st.title(text['main_title'])
     st.caption(text['caption'])
 
-    # --- "Why am I eligible?" Button Logic ---
+    # --- "Why am I eligible?" Logic (Unchanged) ---
     if st.session_state.explain_scheme_id:
         explanation = chatbot.get_eligibility_explanation(st.session_state.explain_scheme_id, st.session_state.user_profile, lang)
         st.session_state.chat_history.append({'type': 'assistant', 'message': explanation})
@@ -57,20 +56,19 @@ def main():
         st.session_state.explain_scheme_id = None
         st.rerun()
     
-    # --- Main Tab Menu (Stable version) ---
+    # --- Main Tab Menu Logic (Unchanged) ---
     tab_options = [text['dashboard_tab'], text['chat_tab']]
     try: default_index = tab_options.index(st.session_state.active_tab)
     except (ValueError, KeyError): default_index = 0
-
     selected = option_menu(menu_title=None, options=tab_options, icons=["grid-1x2-fill", "robot"], key='main_menu', default_index=default_index, orientation="horizontal",
         styles={"container": {"padding": "0!important", "background-color": "#262730", "border-radius": "10px"}, "icon": {"color": "white", "font-size": "20px"}, "nav-link": {"font-size": "16px", "font-family": "Manrope, sans-serif", "font-weight": "bold", "color": "#aaa", "text-align": "center", "margin":"0px", "--hover-color": "#3a3b44"}, "nav-link-selected": {"background-color": "#ef4444", "color": "white"}})
-    
     if selected != st.session_state.active_tab:
         st.session_state.active_tab = selected
         st.rerun()
 
-    # --- Display content based on the reliable active_tab state ---
+    # --- Tab Content Display ---
     if st.session_state.active_tab == text['dashboard_tab']:
+        # Dashboard content...
         st.header(text['dashboard_header'])
         st.write(text['dashboard_subheader'])
         st.divider()
@@ -82,8 +80,11 @@ def main():
             st.info(text['dashboard_info'])
     
     elif st.session_state.active_tab == text['chat_tab']:
+        # Chat content...
         st.header(text['chat_header'])
         ui_components.display_chat_history()
+        
+        ### THIS BLOCK CONTAINS THE REDIRECT FIX ###
         if st.session_state.chat_history and st.session_state.chat_history[-1]['type'] == 'user':
             with st.chat_message("assistant", avatar="assistant"):
                 with st.spinner("Bot is thinking..."):
@@ -91,12 +92,17 @@ def main():
                     st.session_state.chat_history.append({'type': 'assistant', 'message': response['text']})
                     audio_bytes = ui_components.text_to_audio(response['text'], lang)
                     if audio_bytes: st.session_state.audio_to_play = audio_bytes
+                    
+                    # THE FIX IS HERE: Check for the action and set the next tab
                     if response.get("action") == "calculate_schemes":
                         schemes = data_manager.find_matching_schemes(st.session_state.user_profile)
                         st.session_state.recommended_schemes = schemes
                         st.toast(text['toast_schemes_updated'], icon="✅")
-                        st.session_state.active_tab = text['dashboard_tab']
+                        st.session_state.active_tab = text['dashboard_tab'] # Set the tab for the next rerun
+                    
                     st.rerun()
+
+        # User input section (unchanged)
         text_input = st.chat_input(text['chat_input_prompt'])
         st.divider()
         voice_input = ui_components.voice_input_ui(lang, text)
@@ -105,6 +111,7 @@ def main():
             st.session_state.chat_history.append({'type': 'user', 'message': user_input})
             st.rerun()
 
+    # Audio player (unchanged)
     if st.session_state.get('audio_to_play'):
         st.audio(st.session_state.audio_to_play, autoplay=True)
         st.session_state.audio_to_play = None

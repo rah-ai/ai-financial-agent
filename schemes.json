@@ -1,0 +1,71 @@
+{
+    "PM-KISAN": {
+        "name": {
+            "en": "PM-KISAN Samman Nidhi",
+            "hi": "पीएम किसान सम्मान निधि"
+        },
+        "category": "Agriculture",
+        "benefit": "₹6,000 per year",
+        "eligibility": {
+            "en": ["Farmer", "Land owner", "Small/Marginal farmer"],
+            "hi": ["किसान", "भूमि स्वामी", "लघु/सीमांत किसान"]
+        },
+        "description": {
+            "en": "Direct income support to farmers",
+            "hi": "किसानों के लिए सीधे पैसे का सहारा"
+        },
+        "documents": ["Aadhaar", "Bank Account", "Land Records"],
+        "application_link": "https://pmkisan.gov.in/",
+        "help_link": "https://pmkisan.gov.in/StaticPages/faq.aspx",
+        "deadline": "Ongoing",
+        "contact": "1800-180-1551",
+        "contact_link": "tel:1800-180-1551",
+        "tags": ["farmer", "kisan", "agriculture", "land", "rural", "kheti", "किसान", "खेती", "कृषि"]
+    },
+    "MUDRA": {
+        "name": {
+            "en": "PM Mudra Yojana",
+            "hi": "मुद्रा योजना"
+        },
+        "category": "Business",
+        "benefit": "Up to ₹10 lakh business loan",
+        "eligibility": {
+            "en": ["Small business owner", "Self-employed", "Micro enterprise"],
+            "hi": ["छोटे व्यवसाय के मालिक", "स्वरोजगार", "सूक्ष्म उद्यम"]
+        },
+        "description": {
+            "en": "Credit support for micro-enterprises",
+            "hi": "व्यापार के लिए लोन"
+        },
+        "documents": ["Business Plan", "Aadhaar", "Bank Statements", "Income Proof"],
+        "application_link": "https://www.mudra.org.in/",
+        "help_link": "https://www.mudra.org.in/Default/ViewFile/?id=1218",
+        "deadline": "Ongoing",
+        "contact": "1800-180-1111",
+        "contact_link": "tel:1800-180-1111",
+        "tags": ["business", "loan", "startup", "entrepreneur", "vyapar", "व्यापार", "लोन"]
+    },
+    "SCHOLARSHIP": {
+        "name": {
+            "en": "Post Matric Scholarship",
+            "hi": "छात्रवृत्ति योजना"
+        },
+        "category": "Education",
+        "benefit": "₹2,200-10,000 per month",
+        "eligibility": {
+            "en": ["SC/ST category", "Post-matriculation study", "Family income < ₹2.5 lakh"],
+            "hi": ["SC/ST श्रेणी", "पोस्ट-मैट्रिक अध्ययन", "पारिवारिक आय < ₹2.5 लाख"]
+        },
+        "description": {
+            "en": "Financial assistance for higher education",
+            "hi": "पढ़ाई के लिए पैसे की मदद"
+        },
+        "documents": ["Caste Certificate", "Income Certificate", "Mark Sheets"],
+        "application_link": "https://scholarships.gov.in/",
+        "help_link": "https://scholarships.gov.in/helpdesk",
+        "deadline": "30th September 2025",
+        "contact": "0120-6619540",
+        "contact_link": "tel:0120-6619540",
+        "tags": ["education", "student", "scholarship", "college", "study", "padhai", "chhatra", "छात्र", "पढ़ाई"]
+    }
+}

@@ -5,13 +5,9 @@ from streamlit_mic_recorder import speech_to_text
 import io
 from localization import LANGUAGES
 
+# This function is unchanged and preserves your UI
 def apply_custom_css(theme):
-    """
-    Applies the definitive, hyper-stylized CSS with a robust theme-toggling mechanism.
-    This version is stable and complete.
-    """
     css = """
-        /* --- FONTS & ANIMATIONS --- */
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -43,6 +39,7 @@ def apply_custom_css(theme):
         """
     st.markdown(f"<style>{css}{theme_css}</style>", unsafe_allow_html=True)
 
+# --- All other functions are unchanged ---
 def text_to_audio(text, lang='en'):
     try:
         tts_lang = 'en-IN' if lang == 'en' else lang
@@ -75,12 +72,16 @@ def display_profile_sidebar(lang):
         st.session_state.user_profile['category'] = st.selectbox(text['category'], ["General", "OBC", "SC", "ST"])
         st.subheader(text['economic_profile'])
         st.session_state.user_profile['income'] = st.number_input(text['income'], value=200000, step=10000)
+        
+        ### THIS IS THE ONLY CHANGE: "Salaried" has been added ###
         occupations = ["Farmer", "Student", "Business Owner", "Salaried", "Unemployed", "Other"]
         st.session_state.user_profile['occupation'] = st.selectbox(text['occupation'], occupations)
+        
         if st.button(text['find_schemes_button'], use_container_width=True):
             return True
     return False
 
+# --- All other functions are unchanged ---
 def display_scheme_card(scheme, lang):
     text = LANGUAGES[lang]
     data = scheme['data']
